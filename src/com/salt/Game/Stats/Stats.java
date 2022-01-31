@@ -101,4 +101,8 @@ public class Stats {
             isDead = true;
         }
     }
+
+    public float getHpPercent() {
+        return (float) (HP/MAX_HP * 100);
+    }
 }
