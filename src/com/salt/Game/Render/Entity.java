@@ -35,7 +35,7 @@ public class Entity {
     }
 
     public void draw() {
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT);
         if (type == GL_QUADS) {
             glColor3f(colorArray.x, colorArray.y, colorArray.z);
             glBegin(type);
@@ -55,7 +55,7 @@ public class Entity {
     }
 
     public void up() {
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT);
         if ((vertex1.y < 1 && (vertex4.y + distanceY) < 1) && type == GL_QUADS) {
             vertex1.y += 0.01;
             vertex2.y += 0.01;
@@ -66,11 +66,11 @@ public class Entity {
             vertex2.y += 0.01;
             vertex3.y += 0.01;
         }
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT);
     }
 
     public void down() {
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT);
         if ((vertex4.y > -1 && (vertex1.y - distanceY) > -1) && type == GL_QUADS) {
             vertex1.y -= 0.01;
             vertex2.y -= 0.01;
@@ -81,11 +81,11 @@ public class Entity {
             vertex2.y -= 0.01;
             vertex3.y -= 0.01;
         }
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT);
     }
 
     public void left() {
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT);
         if ((vertex1.x > -1 && (vertex2.x - distanceX) > -1) && type == GL_QUADS) {
             vertex1.x -= 0.01;
             vertex2.x -= 0.01;
@@ -96,11 +96,11 @@ public class Entity {
             vertex2.x -= 0.01;
             vertex3.x -= 0.01;
         }
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT);
     }
 
     public void right() {
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT);
         if ((vertex2.x < 1 && (vertex1.x + distanceX) < 1) && type == GL_QUADS) {
             vertex1.x += 0.01;
             vertex2.x += 0.01;
@@ -111,11 +111,11 @@ public class Entity {
             vertex2.x += 0.01;
             vertex3.x += 0.01;
         }
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT);
     }
 
     public void upRight() {
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT);
         if ((vertex1.y < 1 && (vertex4.y + distanceY) < 1) && (vertex2.x < 1 && (vertex1.x + distanceX) < 1) && type == GL_QUADS) {
             vertex1.y += 0.0001;
             vertex2.y += 0.0001;
@@ -133,11 +133,11 @@ public class Entity {
             vertex2.x += 0.0001;
             vertex3.x += 0.0001;
         }
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT);
     }
 
     public void upLeft() {
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT);
         if ((vertex1.y < 1 && (vertex4.y + distanceY) < 1) && (vertex1.x > -1 && (vertex2.x - distanceX) > -1) && type == GL_QUADS) {
             vertex1.y += 0.0001;
             vertex2.y += 0.0001;
@@ -155,11 +155,11 @@ public class Entity {
             vertex2.x -= 0.0001;
             vertex3.x -= 0.0001;
         }
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT);
     }
 
     public void downRight() {
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT);
         if ((vertex4.y > -1 && (vertex1.y - distanceY) > -1) && (vertex2.x < 1 && (vertex1.x + distanceX) < 1) && type == GL_QUADS) {
             vertex1.y -= 0.0001;
             vertex2.y -= 0.0001;
@@ -177,11 +177,11 @@ public class Entity {
             vertex2.x += 0.0001;
             vertex3.x += 0.0001;
         }
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT);
     }
 
     public void downLeft() {
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT);
         if ((vertex4.y > -1 && (vertex1.y - distanceY) > -1) && (vertex1.x > -1 && (vertex2.x - distanceX) > -1) && type == GL_QUADS) {
             vertex1.y -= 0.0001;
             vertex2.y -= 0.0001;
@@ -199,6 +199,6 @@ public class Entity {
             vertex2.x -= 0.0001;
             vertex3.x -= 0.0001;
         }
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT);
     }
 }
