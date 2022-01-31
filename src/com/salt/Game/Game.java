@@ -7,5 +7,6 @@ public class Game {
     public static void main(String[] args) throws InterruptedException {
         new Window().run();
         // new Battle("Frog", 2, 1, true).battleScene();
+        System.out.println(Math.cos(69*Math.PI));
     }
 }
