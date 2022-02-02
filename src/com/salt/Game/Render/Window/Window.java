@@ -16,9 +16,10 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
+import com.salt.Game.Player.Player;
+
 public class Window {
     private long window;
-    Entity player = new Entity(new Vector3(1.0f, 0.0f, 0.0f), new Vector2(-0.125f, 0.125f), new Vector2(0.125f, 0.125f), new Vector2(0.125f, -0.125f), new Vector2(-0.125f, -0.125f));
     boolean flagUp;
     boolean flagDown;
     boolean flagRight;
@@ -47,10 +48,10 @@ public class Window {
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE); // the window will stay hidden after creation
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE); // the window will be resizable
 
-        window = glfwCreateWindow(400, 400, "Game", NULL, NULL);
-        glfwSetWindowAspectRatio(window, 1, 1);
+        window = glfwCreateWindow(480, 270, "Game", NULL, NULL);
+        glfwSetWindowAspectRatio(window, 16, 9);
         glfwGetVideoMode(glfwGetPrimaryMonitor()).height();
-        glfwSetWindowSizeLimits(window, 400, 400, glfwGetVideoMode(glfwGetPrimaryMonitor()).width(), glfwGetVideoMode(glfwGetPrimaryMonitor()).height());
+        glfwSetWindowSizeLimits(window, 480, 270, glfwGetVideoMode(glfwGetPrimaryMonitor()).width(), glfwGetVideoMode(glfwGetPrimaryMonitor()).height());
         if ( window == NULL )
             throw new RuntimeException("Failed to create the GLFW window");
 
@@ -112,66 +113,8 @@ public class Window {
         GL.createCapabilities();
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
         while ( !glfwWindowShouldClose(window) ) {
-            player.draw();
+            Player.player.draw();
             glfwSwapBuffers(window);
-            glfwPollEvents();
-
-            if (flagUp && flagRight) {
-                player.draw();
-                glfwPollEvents();
-                player.upRight();
-                Thread.sleep(1);
-            }
-            if (flagUp && flagLeft) {
-                player.draw();
-                glfwPollEvents();
-                player.upLeft();
-                Thread.sleep(1);
-                player.draw();
-            }
-            if (flagDown && flagRight) {
-                player.draw();
-                glfwPollEvents();
-                player.downRight();
-                Thread.sleep(1);
-                player.draw();
-            }
-            if (flagDown && flagLeft) {
-                player.draw();
-                glfwPollEvents();
-                player.downLeft();
-                Thread.sleep(1);
-                player.draw();
-            }
-            if (flagUp) {
-                player.draw();
-                glfwPollEvents();
-                player.up();
-                Thread.sleep(1);
-                player.draw();
-            }
-            if (flagDown) {
-                player.draw();
-                glfwPollEvents();
-                player.down();
-                Thread.sleep(1);
-                player.draw();
-            }
-            if (flagLeft) {
-                player.draw();
-                glfwPollEvents();
-                player.left();
-                Thread.sleep(1);
-                player.draw();
-            }
-            if (flagRight) {
-                player.draw();
-                glfwPollEvents();
-                player.right();
-                Thread.sleep(1);
-                player.draw();
-            }
-            player.draw();
             glfwPollEvents();
         }
         glClear(GL_COLOR_BUFFER_BIT);

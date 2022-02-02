@@ -2,7 +2,10 @@ package com.salt.Game.Player;
 
 import com.salt.Game.Item.Item;
 import com.salt.Game.Item.ItemList;
+import com.salt.Game.Render.Entity;
 import com.salt.Game.Stats.Stats;
+import com.salt.Game.Vector.Vector2;
+import com.salt.Game.Vector.Vector3;
 
 import java.util.HashMap;
 
@@ -11,6 +14,7 @@ public class Player {
     private static HashMap<Integer, Item> inventory = new HashMap<>();
     public static int inventory_size = 12;
     private static HashMap<Integer, Item> gear = new HashMap<>();
+    public static Entity player = new Entity(new Vector3(1.0f, 0.0f, 0.0f), new Vector2(-0.125f, 0.125f), new Vector2(0.125f, 0.125f), new Vector2(0.125f, -0.125f), new Vector2(-0.125f, -0.125f));
 
     public static void addItem(int index, Item item) {
         if (index >= 0 && index <= inventory_size) {

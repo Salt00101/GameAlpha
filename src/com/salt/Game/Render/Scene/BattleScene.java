@@ -8,7 +8,6 @@ public class BattleScene {
     Entity enemyBar;
     Entity playerBar;
     Entity ActionBar;
-    Entity HealBar;
     Entity Attack;
     Entity Defend;
     Entity Heal;
@@ -17,6 +16,10 @@ public class BattleScene {
     public BattleScene(Battle battle) {
         this.battle = battle;
     }
-    public void changeHpBar(int type) {
+
+    public void draw() {
+        enemyBar.draw();
+        playerBar.draw();
+        ActionBar.draw();
     }
 }
