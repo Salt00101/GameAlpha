@@ -9,12 +9,15 @@ import com.salt.Game.Vector.Vector3;
 
 import java.util.HashMap;
 
+import static org.lwjgl.opengl.GL11.GL_COLOR_BUFFER_BIT;
+import static org.lwjgl.opengl.GL11.glClear;
+
 public class Player {
     public static Stats stats = new Stats(0, 1);
     private static HashMap<Integer, Item> inventory = new HashMap<>();
     public static int inventory_size = 12;
     private static HashMap<Integer, Item> gear = new HashMap<>();
-    public static Entity player = new Entity(new Vector3(1.0f, 0.0f, 0.0f), new Vector2(-0.125f, 0.125f), new Vector2(0.125f, 0.125f), new Vector2(0.125f, -0.125f), new Vector2(-0.125f, -0.125f));
+    public static Entity player = new Entity(new Vector3(1.0f, 0.0f, 0.0f), new Vector2(-1.125f/16, 1f/9), new Vector2(1.125f/16, 1f/9), new Vector2(1.125f/16, -1f/9), new Vector2(-1.125f/16, -1f/9));
 
     public static void addItem(int index, Item item) {
         if (index >= 0 && index <= inventory_size) {
@@ -49,6 +52,56 @@ public class Player {
     public static void printAllItemType(int type) {
         for (Item s : inventory.values()) {
             System.out.println(s.toString());
+        }
+    }
+
+    public static void move(boolean w, boolean s, boolean a, boolean d) {
+        if (w && a) {
+            glClear(GL_COLOR_BUFFER_BIT);
+            player.upLeft();
+            player.draw();
+        }
+
+        if (w && d) {
+            glClear(GL_COLOR_BUFFER_BIT);
+            player.upRight();
+            player.draw();
+        }
+
+        if (s && a) {
+            glClear(GL_COLOR_BUFFER_BIT);
+            player.downLeft();
+            player.draw();
+        }
+
+        if (s && d) {
+            glClear(GL_COLOR_BUFFER_BIT);
+            player.downRight();
+            player.draw();
+        }
+
+        if (w) {
+            glClear(GL_COLOR_BUFFER_BIT);
+            player.up();
+            player.draw();
+        }
+
+        if (a) {
+            glClear(GL_COLOR_BUFFER_BIT);
+            player.left();
+            player.draw();
+        }
+
+        if (s) {
+            glClear(GL_COLOR_BUFFER_BIT);
+            player.down();
+            player.draw();
+        }
+
+        if (d) {
+            glClear(GL_COLOR_BUFFER_BIT);
+            player.right();
+            player.draw();
         }
     }
 }

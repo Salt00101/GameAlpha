@@ -48,10 +48,10 @@ public class Window {
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE); // the window will stay hidden after creation
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE); // the window will be resizable
 
-        window = glfwCreateWindow(480, 270, "Game", NULL, NULL);
-        glfwSetWindowAspectRatio(window, 16, 9);
+        window = glfwCreateWindow(480, 300, "Game", NULL, NULL);
+        glfwSetWindowAspectRatio(window, 16, 10);
         glfwGetVideoMode(glfwGetPrimaryMonitor()).height();
-        glfwSetWindowSizeLimits(window, 480, 270, glfwGetVideoMode(glfwGetPrimaryMonitor()).width(), glfwGetVideoMode(glfwGetPrimaryMonitor()).height());
+        glfwSetWindowSizeLimits(window, 480, 300, glfwGetVideoMode(glfwGetPrimaryMonitor()).width(), glfwGetVideoMode(glfwGetPrimaryMonitor()).height());
         if ( window == NULL )
             throw new RuntimeException("Failed to create the GLFW window");
 
@@ -114,6 +114,7 @@ public class Window {
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
         while ( !glfwWindowShouldClose(window) ) {
             Player.player.draw();
+            Player.move(flagUp, flagDown, flagLeft, flagRight);
             glfwSwapBuffers(window);
             glfwPollEvents();
         }
