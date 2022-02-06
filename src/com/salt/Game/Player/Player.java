@@ -18,6 +18,10 @@ public class Player {
     public static int inventory_size = 12;
     private static HashMap<Integer, Item> gear = new HashMap<>();
     public static Entity player = new Entity(new Vector3(1.0f, 0.0f, 0.0f), new Vector2(-1.125f/16, 1f/9), new Vector2(1.125f/16, 1f/9), new Vector2(1.125f/16, -1f/9), new Vector2(-1.125f/16, -1f/9));
+    public static int dx = 0;
+    public static int dy = 0;
+    public static int px = 0;
+    public static int py = 0;
 
     public static void addItem(int index, Item item) {
         if (index >= 0 && index <= inventory_size) {

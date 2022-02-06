@@ -2,8 +2,8 @@ package com.salt.Game.World;
 
 public class Chunk {
     Tile[][] chunk;
-    int dx;
-    int dy;
+    int dx = 0;
+    int dy = 0;
     boolean isBorder;
 
     public Chunk(Tile[][] chunk) {
@@ -12,8 +12,18 @@ public class Chunk {
 
     public Chunk(boolean isBorder) {
         this.isBorder = isBorder;
-        dx = 0;
-        dy = 0;
         chunk = new Tile[][]{{new Tile(), new Tile(), new Tile(), new Tile(), new Tile(), new Tile(), new Tile(), new Tile()}, {new Tile(), new Tile(), new Tile(), new Tile(), new Tile(), new Tile(), new Tile(), new Tile()}, {new Tile(), new Tile(), new Tile(), new Tile(), new Tile(), new Tile(), new Tile(), new Tile()}, {new Tile(), new Tile(), new Tile(), new Tile(), new Tile(), new Tile(), new Tile(), new Tile()}, {new Tile(), new Tile(), new Tile(), new Tile(), new Tile(), new Tile(), new Tile(), new Tile()}, {new Tile(), new Tile(), new Tile(), new Tile(), new Tile(), new Tile(), new Tile(), new Tile()}, {new Tile(), new Tile(), new Tile(), new Tile(), new Tile(), new Tile(), new Tile(), new Tile()}, {new Tile(), new Tile(), new Tile(), new Tile(), new Tile(), new Tile(), new Tile(), new Tile()}};
+    }
+
+    public int getDx() {
+        return dx;
+    }
+
+    public int getDy() {
+        return dy;
+    }
+
+    public boolean isBorder() {
+        return isBorder;
     }
 }
