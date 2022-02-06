@@ -56,149 +56,49 @@ public class Entity {
 
     public void up() {
         glClear(GL_COLOR_BUFFER_BIT);
-        if ((vertex1.y < 1 && (vertex4.y + distanceY) < 1) && type == GL_QUADS) {
-            vertex1.y += 0.02;
-            vertex2.y += 0.02;
-            vertex3.y += 0.02;
-            vertex4.y += 0.02;
-        } if ((vertex1.y < 1 && (vertex4.y + distanceY) < 1) && type == GL_TRIANGLES) {
-            vertex1.y += 0.02;
-            vertex2.y += 0.02;
-            vertex3.y += 0.02;
-        }
+
         glClear(GL_COLOR_BUFFER_BIT);
     }
 
     public void down() {
         glClear(GL_COLOR_BUFFER_BIT);
-        if ((vertex4.y > -1 && (vertex1.y - distanceY) > -1) && type == GL_QUADS) {
-            vertex1.y -= 0.02;
-            vertex2.y -= 0.02;
-            vertex3.y -= 0.02;
-            vertex4.y -= 0.02;
-        } if ((vertex4.y > -1 && (vertex1.y - distanceY) > -1) && type == GL_TRIANGLES) {
-            vertex1.y -= 0.02;
-            vertex2.y -= 0.02;
-            vertex3.y -= 0.02;
-        }
+
         glClear(GL_COLOR_BUFFER_BIT);
     }
 
     public void left() {
         glClear(GL_COLOR_BUFFER_BIT);
-        if ((vertex1.x > -1 && (vertex2.x - distanceX) > -1) && type == GL_QUADS) {
-            vertex1.x -= 0.02;
-            vertex2.x -= 0.02;
-            vertex3.x -= 0.02;
-            vertex4.x -= 0.02;
-        } if ((vertex1.y > -1 && (vertex2.y - distanceY) > -1) && type == GL_TRIANGLES) {
-            vertex1.x -= 0.02;
-            vertex2.x -= 0.02;
-            vertex3.x -= 0.02;
-        }
+
         glClear(GL_COLOR_BUFFER_BIT);
     }
 
     public void right() {
         glClear(GL_COLOR_BUFFER_BIT);
-        if ((vertex2.x < 1 && (vertex1.x + distanceX) < 1) && type == GL_QUADS) {
-            vertex1.x += 0.02;
-            vertex2.x += 0.02;
-            vertex3.x += 0.02;
-            vertex4.x += 0.02;
-        } if ((vertex2.y < 1 && (vertex1.y + distanceY) < 1) && type == GL_TRIANGLES) {
-            vertex1.x += 0.02;
-            vertex2.x += 0.02;
-            vertex3.x += 0.02;
-        }
+
         glClear(GL_COLOR_BUFFER_BIT);
     }
 
     public void upRight() {
         glClear(GL_COLOR_BUFFER_BIT);
-        if ((vertex1.y < 1 && (vertex4.y + distanceY) < 1) && (vertex2.x < 1 && (vertex1.x + distanceX) < 1) && type == GL_QUADS) {
-            vertex1.y += 0.02 * (1 - Math.sqrt(2));
-            vertex2.y += 0.02 * (1 - Math.sqrt(2));
-            vertex3.y += 0.02 * (1 - Math.sqrt(2));
-            vertex4.y += 0.02 * (1 - Math.sqrt(2));
-            vertex1.x += 0.02 * (1 - Math.sqrt(2));
-            vertex2.x += 0.02 * (1 - Math.sqrt(2));
-            vertex3.x += 0.02 * (1 - Math.sqrt(2));
-            vertex4.x += 0.02 * (1 - Math.sqrt(2));
-        } if ((vertex1.y < 1 && (vertex4.y + distanceY) < 1) && (vertex2.y < 1 && (vertex1.y + distanceY) < 1) && type == GL_TRIANGLES) {
-            vertex1.y += 0.02 * (1 - Math.sqrt(2));
-            vertex2.y += 0.02 * (1 - Math.sqrt(2));
-            vertex3.y += 0.02 * (1 - Math.sqrt(2));
-            vertex1.x += 0.02 * (1 - Math.sqrt(2));
-            vertex2.x += 0.02 * (1 - Math.sqrt(2));
-            vertex3.x += 0.02 * (1 - Math.sqrt(2));
-        }
+
         glClear(GL_COLOR_BUFFER_BIT);
     }
 
     public void upLeft() {
         glClear(GL_COLOR_BUFFER_BIT);
-        if ((vertex1.y < 1 && (vertex4.y + distanceY) < 1) && (vertex1.x > -1 && (vertex2.x - distanceX) > -1) && type == GL_QUADS) {
-            vertex1.y += 0.02 * (1 - Math.sqrt(2));
-            vertex2.y += 0.02 * (1 - Math.sqrt(2));
-            vertex3.y += 0.02 * (1 - Math.sqrt(2));
-            vertex4.y += 0.02 * (1 - Math.sqrt(2));
-            vertex1.x -= 0.02 * (1 - Math.sqrt(2));
-            vertex2.x -= 0.02 * (1 - Math.sqrt(2));
-            vertex3.x -= 0.02 * (1 - Math.sqrt(2));
-            vertex4.x -= 0.02 * (1 - Math.sqrt(2));
-        } if ((vertex1.y < 1 && (vertex4.y + distanceY) < 1) && (vertex1.x > -1 && (vertex2.x - distanceX) > -1) && type == GL_TRIANGLES) {
-            vertex1.y += 0.02 * (1 - Math.sqrt(2));
-            vertex2.y += 0.02 * (1 - Math.sqrt(2));
-            vertex3.y += 0.02 * (1 - Math.sqrt(2));
-            vertex1.x -= 0.02 * (1 - Math.sqrt(2));
-            vertex2.x -= 0.02 * (1 - Math.sqrt(2));
-            vertex3.x -= 0.02 * (1 - Math.sqrt(2));
-        }
+
         glClear(GL_COLOR_BUFFER_BIT);
     }
 
     public void downRight() {
         glClear(GL_COLOR_BUFFER_BIT);
-        if ((vertex4.y > -1 && (vertex1.y - distanceY) > -1) && (vertex2.x < 1 && (vertex1.x + distanceX) < 1) && type == GL_QUADS) {
-            vertex1.y -= 0.02 * (1 - Math.sqrt(2));
-            vertex2.y -= 0.02 * (1 - Math.sqrt(2));
-            vertex3.y -= 0.02 * (1 - Math.sqrt(2));
-            vertex4.y -= 0.02 * (1 - Math.sqrt(2));
-            vertex1.x += 0.02 * (1 - Math.sqrt(2));
-            vertex2.x += 0.02 * (1 - Math.sqrt(2));
-            vertex3.x += 0.02 * (1 - Math.sqrt(2));
-            vertex4.x += 0.02 * (1 - Math.sqrt(2));
-        } if ((vertex4.y > -1 && (vertex1.y - distanceY) > -1) && (vertex2.y < 1 && (vertex1.y + distanceY) < 1) && type == GL_TRIANGLES) {
-            vertex1.y -= 0.02 * (1 - Math.sqrt(2));
-            vertex2.y -= 0.02 * (1 - Math.sqrt(2));
-            vertex3.y -= 0.02 * (1 - Math.sqrt(2));
-            vertex1.x += 0.02 * (1 - Math.sqrt(2));
-            vertex2.x += 0.02 * (1 - Math.sqrt(2));
-            vertex3.x += 0.02 * (1 - Math.sqrt(2));
-        }
+
         glClear(GL_COLOR_BUFFER_BIT);
     }
 
     public void downLeft() {
         glClear(GL_COLOR_BUFFER_BIT);
-        if ((vertex4.y > -1 && (vertex1.y - distanceY) > -1) && (vertex1.x > -1 && (vertex2.x - distanceX) > -1) && type == GL_QUADS) {
-            vertex1.y -= 0.02 * (1 - Math.sqrt(2));
-            vertex2.y -= 0.02 * (1 - Math.sqrt(2));
-            vertex3.y -= 0.02 * (1 - Math.sqrt(2));
-            vertex4.y -= 0.02 * (1 - Math.sqrt(2));
-            vertex1.x -= 0.02 * (1 - Math.sqrt(2));
-            vertex2.x -= 0.02 * (1 - Math.sqrt(2));
-            vertex3.x -= 0.02 * (1 - Math.sqrt(2));
-            vertex4.x -= 0.02 * (1 - Math.sqrt(2));
-        } if ((vertex4.y > -1 && (vertex1.y - distanceY) > -1) && (vertex1.x > -1 && (vertex2.x - distanceX) > -1) && type == GL_TRIANGLES) {
-            vertex1.y -= 0.02 * (1 - Math.sqrt(2));
-            vertex2.y -= 0.02 * (1 - Math.sqrt(2));
-            vertex3.y -= 0.02 * (1 - Math.sqrt(2));
-            vertex1.x -= 0.02 * (1 - Math.sqrt(2));
-            vertex2.x -= 0.02 * (1 - Math.sqrt(2));
-            vertex3.x -= 0.02 * (1 - Math.sqrt(2));
-        }
+
         glClear(GL_COLOR_BUFFER_BIT);
     }
 }

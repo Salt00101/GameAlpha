@@ -9,6 +9,7 @@ import org.lwjgl.opengl.*;
 import org.lwjgl.system.*;
 
 import java.nio.*;
+import java.util.Locale;
 
 import static org.lwjgl.glfw.Callbacks.*;
 import static org.lwjgl.glfw.GLFW.*;
@@ -112,6 +113,7 @@ public class Window {
     private void loop() throws InterruptedException {
         GL.createCapabilities();
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+
         while ( !glfwWindowShouldClose(window) ) {
             Player.player.draw();
             Player.move(flagUp, flagDown, flagLeft, flagRight);
@@ -119,6 +121,11 @@ public class Window {
             glfwPollEvents();
         }
         glClear(GL_COLOR_BUFFER_BIT);
+    }
+
+    public String getOperatingSystem() {
+        String os = System.getProperty("os.name");
+        return os.toLowerCase();
     }
 
 }
