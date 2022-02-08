@@ -1,5 +1,7 @@
 package com.salt.Game.World;
 
+import com.salt.Game.Render.Entity;
+
 public class Tile {
     String file;
     boolean isTaken;
@@ -7,6 +9,7 @@ public class Tile {
     boolean isBackground;
     int interactType;
     int state;
+    Entity IEntityTile;
 
     public Tile(String file, boolean isTaken, boolean isIntractable, boolean isBackground, int interactType, int state) {
         this.file = file;
@@ -72,5 +75,13 @@ public class Tile {
 
     public void setState(int state) {
         this.state = state;
+    }
+
+    public Entity getIEntityTile() {
+        return IEntityTile;
+    }
+
+    public void setIEntityTile(Entity IEntityTile) {
+        this.IEntityTile = IEntityTile;
     }
 }

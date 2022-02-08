@@ -5,6 +5,8 @@ import com.salt.Game.Vector.Vector3;
 
 import static org.lwjgl.opengl.GL11.*;
 
+import static com.salt.Game.Player.Player.*;
+
 public class Entity {
     Vector3 colorArray;
     Vector2 vertex1;
@@ -56,49 +58,73 @@ public class Entity {
 
     public void up() {
         glClear(GL_COLOR_BUFFER_BIT);
-
+        vertex1.y += 2.0f/9;
+        vertex2.y += 2.0f/9;
+        vertex3.y += 2.0f/9;
+        vertex4.y += 2.0f/9;
         glClear(GL_COLOR_BUFFER_BIT);
     }
 
     public void down() {
         glClear(GL_COLOR_BUFFER_BIT);
-
+        vertex1.y -= 2.0f/9;
+        vertex2.y -= 2.0f/9;
+        vertex3.y -= 2.0f/9;
+        vertex4.y -= 2.0f/9;
         glClear(GL_COLOR_BUFFER_BIT);
     }
 
     public void left() {
         glClear(GL_COLOR_BUFFER_BIT);
-
+        vertex1.x -= 2.0f/16;
+        vertex2.x -= 2.0f/16;
+        vertex3.x -= 2.0f/16;
+        vertex4.x -= 2.0f/16;
         glClear(GL_COLOR_BUFFER_BIT);
     }
 
     public void right() {
         glClear(GL_COLOR_BUFFER_BIT);
-
+        vertex1.x += 2.0f/16;
+        vertex2.x += 2.0f/16;
+        vertex3.x += 2.0f/16;
+        vertex4.x += 2.0f/16;
         glClear(GL_COLOR_BUFFER_BIT);
     }
 
-    public void upRight() {
+    public void toBottom() {
         glClear(GL_COLOR_BUFFER_BIT);
-
-        glClear(GL_COLOR_BUFFER_BIT);
-    }
-
-    public void upLeft() {
-        glClear(GL_COLOR_BUFFER_BIT);
-
+        vertex1.y = -9f/9;
+        vertex2.y = -7f/9;
+        vertex3.y = -7f/9;
+        vertex4.y = -9f/9;
         glClear(GL_COLOR_BUFFER_BIT);
     }
 
-    public void downRight() {
+    public void toTop() {
         glClear(GL_COLOR_BUFFER_BIT);
-
+        vertex1.y = 7f/9;
+        vertex2.y = 9f/9;
+        vertex3.y = 9f/9;
+        vertex4.y = 7f/9;
         glClear(GL_COLOR_BUFFER_BIT);
     }
 
-    public void downLeft() {
+    public void toLeft() {
         glClear(GL_COLOR_BUFFER_BIT);
+        vertex1.x = -16f/16;
+        vertex2.x = -16f/16;
+        vertex3.x = -14f/16;
+        vertex4.x = -14f/16;
+        glClear(GL_COLOR_BUFFER_BIT);
+    }
 
+    public void toRight() {
+        glClear(GL_COLOR_BUFFER_BIT);
+        vertex1.x = 14f/16;
+        vertex2.x = 14f/16;
+        vertex3.x = 16f/16;
+        vertex4.x = 16f/16;
         glClear(GL_COLOR_BUFFER_BIT);
     }
 }

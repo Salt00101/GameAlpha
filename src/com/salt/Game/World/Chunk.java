@@ -1,10 +1,10 @@
 package com.salt.Game.World;
 
 public class Chunk {
-    Tile[][] chunk;
-    int dx = 0;
-    int dy = 0;
-    boolean isBorder;
+    public Tile[][] chunk;
+    public int dx = 0;
+    public int dy = 0;
+    public boolean isBorder;
 
     public Chunk(Tile[][] chunk) {
         this.chunk = chunk;
@@ -25,5 +25,9 @@ public class Chunk {
 
     public boolean isBorder() {
         return isBorder;
+    }
+
+    public void setBorder(boolean border) {
+        isBorder = border;
     }
 }

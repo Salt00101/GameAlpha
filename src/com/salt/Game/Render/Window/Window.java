@@ -1,5 +1,6 @@
 package com.salt.Game.Render.Window;
 
+import com.salt.Game.Player.Movement;
 import com.salt.Game.Render.Entity;
 import com.salt.Game.Vector.Vector2;
 import com.salt.Game.Vector.Vector3;
@@ -49,10 +50,10 @@ public class Window {
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE); // the window will stay hidden after creation
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE); // the window will be resizable
 
-        window = glfwCreateWindow(480, 300, "Game", NULL, NULL);
-        glfwSetWindowAspectRatio(window, 16, 10);
+        window = glfwCreateWindow(480, 270, "Game", NULL, NULL);
+        glfwSetWindowAspectRatio(window, 16, 9);
         glfwGetVideoMode(glfwGetPrimaryMonitor()).height();
-        glfwSetWindowSizeLimits(window, 480, 300, glfwGetVideoMode(glfwGetPrimaryMonitor()).width(), glfwGetVideoMode(glfwGetPrimaryMonitor()).height());
+        glfwSetWindowSizeLimits(window, 480, 270, glfwGetVideoMode(glfwGetPrimaryMonitor()).width(), glfwGetVideoMode(glfwGetPrimaryMonitor()).height());
         if ( window == NULL )
             throw new RuntimeException("Failed to create the GLFW window");
 
@@ -62,29 +63,16 @@ public class Window {
                 glfwSetWindowShouldClose(window, true); // We will detect this in the rendering loop
 
             if ( key == GLFW_KEY_W && action == GLFW_PRESS )
-                flagUp = true;
-
-            if ( key == GLFW_KEY_W && action == GLFW_RELEASE )
-                flagUp = false;
+                Player.up();
 
             if ( key == GLFW_KEY_S && action == GLFW_PRESS )
-                flagDown = true;
-
-            if ( key == GLFW_KEY_S && action == GLFW_RELEASE )
-                flagDown = false;
+                Player.down();
 
             if ( key == GLFW_KEY_A && action == GLFW_PRESS )
-                flagLeft = true;
-
-            if ( key == GLFW_KEY_A && action == GLFW_RELEASE )
-                flagLeft = false;
+                Player.left();
 
             if ( key == GLFW_KEY_D && action == GLFW_PRESS )
-                flagRight = true;
-
-            if ( key == GLFW_KEY_D && action == GLFW_RELEASE )
-                flagRight = false;
-
+                Player.right();
         });
 
         // Get the thread stack and push a new frame
@@ -112,13 +100,14 @@ public class Window {
 
     private void loop() throws InterruptedException {
         GL.createCapabilities();
-        glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
         while ( !glfwWindowShouldClose(window) ) {
             Player.player.draw();
-            Player.move(flagUp, flagDown, flagLeft, flagRight);
+            Thread.sleep(2);
             glfwSwapBuffers(window);
             glfwPollEvents();
+            Thread.sleep(2);
         }
         glClear(GL_COLOR_BUFFER_BIT);
     }

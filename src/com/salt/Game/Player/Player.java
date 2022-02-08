@@ -17,7 +17,12 @@ public class Player {
     private static HashMap<Integer, Item> inventory = new HashMap<>();
     public static int inventory_size = 12;
     private static HashMap<Integer, Item> gear = new HashMap<>();
-    public static Entity player = new Entity(new Vector3(1.0f, 0.0f, 0.0f), new Vector2(-1.125f/16, 1f/9), new Vector2(1.125f/16, 1f/9), new Vector2(1.125f/16, -1f/9), new Vector2(-1.125f/16, -1f/9));
+    static Vector3 color = new Vector3(1.0f,0.0f,0.0f);
+    public static Vector2 v1 = new Vector2(0.0f/16,-1f/9);
+    public static Vector2 v2 = new Vector2(0.0f/16,1f/9);
+    public static Vector2 v3 = new Vector2(2.0f/16,1f/9);
+    public static Vector2 v4 = new Vector2(2.0f/16,-1f/9);
+    public static Entity player = new Entity(color, v1, v2, v3, v4);
     public static int dx = 0;
     public static int dy = 0;
     public static int px = 0;
@@ -59,53 +64,27 @@ public class Player {
         }
     }
 
-    public static void move(boolean w, boolean s, boolean a, boolean d) {
-        if (w && a) {
-            glClear(GL_COLOR_BUFFER_BIT);
-            player.upLeft();
-            player.draw();
-        }
+    public static void up() {
+        glClear(GL_COLOR_BUFFER_BIT);
+        Movement.w();
+        Player.player.draw();
+    }
 
-        if (w && d) {
-            glClear(GL_COLOR_BUFFER_BIT);
-            player.upRight();
-            player.draw();
-        }
+    public static void down() {
+        glClear(GL_COLOR_BUFFER_BIT);
+        Movement.s();
+        Player.player.draw();
+    }
 
-        if (s && a) {
-            glClear(GL_COLOR_BUFFER_BIT);
-            player.downLeft();
-            player.draw();
-        }
+    public static void left() {
+        glClear(GL_COLOR_BUFFER_BIT);
+        Movement.a();
+        Player.player.draw();
+    }
 
-        if (s && d) {
-            glClear(GL_COLOR_BUFFER_BIT);
-            player.downRight();
-            player.draw();
-        }
-
-        if (w) {
-            glClear(GL_COLOR_BUFFER_BIT);
-            player.up();
-            player.draw();
-        }
-
-        if (a) {
-            glClear(GL_COLOR_BUFFER_BIT);
-            player.left();
-            player.draw();
-        }
-
-        if (s) {
-            glClear(GL_COLOR_BUFFER_BIT);
-            player.down();
-            player.draw();
-        }
-
-        if (d) {
-            glClear(GL_COLOR_BUFFER_BIT);
-            player.right();
-            player.draw();
-        }
+    public static void right() {
+        glClear(GL_COLOR_BUFFER_BIT);
+        Movement.d();
+        Player.player.draw();
     }
 }
