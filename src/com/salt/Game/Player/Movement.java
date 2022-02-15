@@ -28,7 +28,7 @@ public class Movement {
                 dx = 15;
                 px--;
                 player.toRight();
-            } else if (px <= 1 && dx == 1) {
+            } else if (px <= 0 && dx == 0) {
 
             } else {
                 if (!map[px][py].chunk[dx - 1][dy].isTaken()) {
@@ -45,7 +45,7 @@ public class Movement {
                 dy = 8;
                 py--;
                 player.toTop();
-            } else if (py <= 1 && dy == 10) {
+            } else if (py <= 0 && dy == 0) {
 
             } else {
                 if (!map[px][py].chunk[dx][dy - 1].isTaken()) {

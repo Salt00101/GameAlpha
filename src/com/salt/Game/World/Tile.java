@@ -3,7 +3,6 @@ package com.salt.Game.World;
 import com.salt.Game.Render.Entity;
 
 public class Tile {
-    String file;
     boolean isTaken;
     boolean isIntractable;
     boolean isBackground;
@@ -11,8 +10,7 @@ public class Tile {
     int state;
     Entity IEntityTile;
 
-    public Tile(String file, boolean isTaken, boolean isIntractable, boolean isBackground, int interactType, int state) {
-        this.file = file;
+    public Tile(boolean isTaken, boolean isIntractable, boolean isBackground, int interactType, int state) {
         this.isTaken = isTaken;
         this.isIntractable = isIntractable;
         this.isBackground = isBackground;
@@ -21,20 +19,11 @@ public class Tile {
     }
 
     public Tile() {
-        this.file = null;
         this.isTaken = true;
         this.isIntractable = false;
         this.isBackground = false;
         this.interactType = -1;
         this.state = -1;
-    }
-
-    public String getFile() {
-        return file;
-    }
-
-    public void setFile(String file) {
-        this.file = file;
     }
 
     public boolean isTaken() {
@@ -83,5 +72,9 @@ public class Tile {
 
     public void setIEntityTile(Entity IEntityTile) {
         this.IEntityTile = IEntityTile;
+    }
+
+    public void drawTile() {
+
     }
 }
