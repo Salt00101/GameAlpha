@@ -11,12 +11,14 @@ public class Movement {
                 dy = 0;
                 py++;
                 player.toBottom();
+                System.out.println("px: " + px + " py: " + py + " dx: " + dx + " dy: " + dy);
             } else if (py >= 6 && dy == 7) {
                 Void();
             } else {
-                if (!map[px][py].chunk[dx][dy + 1].isTaken()) {
+                if (dy < 9 && !map[px][py].chunk[dx][dy + 1].isTaken()) {
                     dy++;
                     player.up();
+                    System.out.println("px: " + px + " py: " + py + " dx: " + dx + " dy: " + dy);
                 }
             }
         }
@@ -28,12 +30,14 @@ public class Movement {
                 dx = 15;
                 px--;
                 player.toRight();
+                System.out.println("px: " + px + " py: " + py + " dx: " + dx + " dy: " + dy);
             } else if (px <= 0 && dx == 0) {
 
             } else {
-                if (!map[px][py].chunk[dx - 1][dy].isTaken()) {
+                if (dx > 0 && !map[px][py].chunk[dx - 1][dy].isTaken()) {
                     dx--;
                     player.left();
+                    System.out.println("px: " + px + " py: " + py + " dx: " + dx + " dy: " + dy);
                 }
             }
         }
@@ -45,13 +49,13 @@ public class Movement {
                 dy = 8;
                 py--;
                 player.toTop();
-            } else if (py <= 0 && dy == 0) {
+                System.out.println("px: " + px + " py: " + py + " dx: " + dx + " dy: " + dy);
+            } else if (py <= 0 && dy <= 0) {
 
-            } else {
-                if (!map[px][py].chunk[dx][dy - 1].isTaken()) {
-                    dy--;
-                    player.down();
-                }
+            } else if (dy > 0 && !map[px][py].chunk[dx][dy - 1].isTaken()) {
+                dy--;
+                player.down();
+                System.out.println("px: " + px + " py: " + py + " dx: " + dx + " dy: " + dy);
             }
         }
     }
@@ -62,12 +66,14 @@ public class Movement {
                 dx = 0;
                 px++;
                 player.toLeft();
+                System.out.println("px: " + px + " py: " + py + " dx: " + dx + " dy: " + dy);
             } else if (px >= 6 && dx == 14) {
                 Void();
             } else {
-                if (!map[px][py].chunk[dx + 1][dy].isTaken()) {
+                if (dx < 16 && !map[px][py].chunk[dx + 1][dy].isTaken()) {
                     dx++;
                     player.right();
+                    System.out.println("px: " + px + " py: " + py + " dx: " + dx + " dy: " + dy);
                 }
             }
         }

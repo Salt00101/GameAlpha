@@ -1,5 +1,6 @@
 package com.salt.Game.Render;
 
+import com.salt.Game.Texture.Texture;
 import com.salt.Game.Vector.Vector2;
 import com.salt.Game.Vector.Vector3;
 
@@ -16,6 +17,7 @@ public class Entity {
     float distanceY;
     float distanceX;
     int type;
+    public Texture ITexture;
 
     public Entity(Vector3 colorArray, Vector2 vertex1, Vector2 vertex2, Vector2 vertex3, Vector2 vertex4) {
         this.colorArray = colorArray;
@@ -26,6 +28,17 @@ public class Entity {
         type = GL_QUADS;
         distanceY = (float) Math.abs(Math.pow((vertex1.y - vertex4.y), 2) + Math.pow((vertex1.x - vertex4.x), 2));
         distanceX = (float) Math.abs(Math.pow((vertex1.x - vertex2.x), 2) + Math.pow((vertex1.y - vertex2.y), 2));
+    }
+
+    public Entity(String fName, Vector2 vertex1, Vector2 vertex2, Vector2 vertex3, Vector2 vertex4) {
+        this.vertex1 = vertex1;
+        this.vertex2 = vertex2;
+        this.vertex3 = vertex3;
+        this.vertex4 = vertex4;
+        type = GL_QUADS;
+        distanceY = (float) Math.abs(Math.pow((vertex1.y - vertex4.y), 2) + Math.pow((vertex1.x - vertex4.x), 2));
+        distanceX = (float) Math.abs(Math.pow((vertex1.x - vertex2.x), 2) + Math.pow((vertex1.y - vertex2.y), 2));
+        ITexture = new Texture(fName);
     }
 
     public Entity(Vector3 colorArray, Vector2 vertex1, Vector2 vertex2, Vector2 vertex3) {
@@ -39,11 +52,18 @@ public class Entity {
     public void draw() {
         glClear(GL_COLOR_BUFFER_BIT);
         if (type == GL_QUADS) {
+            if (ITexture != null) {
+                glTexImage2D(GL_TEXTURE_2D, 1, GL_RGBA,16, 16, 0, GL_RGBA, GL_BYTE, ITexture.imgBuffer);
+            }
             glColor3f(colorArray.x, colorArray.y, colorArray.z);
             glBegin(type);
+            glTexCoord2f(0, 0);
             glVertex2f(vertex1.x, vertex1.y);
+            glTexCoord2f(0, 1);
             glVertex2f(vertex2.x, vertex2.y);
+            glTexCoord2f(1, 1);
             glVertex2f(vertex3.x, vertex3.y);
+            glTexCoord2f(1, 0);
             glVertex2f(vertex4.x, vertex4.y);
             glEnd();
         } else {

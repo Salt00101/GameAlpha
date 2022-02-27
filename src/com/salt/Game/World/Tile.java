@@ -1,6 +1,7 @@
 package com.salt.Game.World;
 
 import com.salt.Game.Render.Entity;
+import com.salt.Game.Vector.Vector2;
 
 public class Tile {
     boolean isTaken;
@@ -10,12 +11,13 @@ public class Tile {
     int state;
     Entity IEntityTile;
 
-    public Tile(boolean isTaken, boolean isIntractable, boolean isBackground, int interactType, int state) {
+    public Tile(boolean isTaken, boolean isIntractable, boolean isBackground, int interactType, int state, String fName, Vector2 v1, Vector2 v2, Vector2 v3, Vector2 v4) {
         this.isTaken = isTaken;
         this.isIntractable = isIntractable;
         this.isBackground = isBackground;
         this.interactType = interactType;
         this.state = state;
+        IEntityTile = new Entity(fName, v1, v2, v3, v4);
     }
 
     public Tile() {
